@@ -1,0 +1,83 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #0f1115; color: #eee; }
+.app { max-width: 1400px; margin: 0 auto; padding: 24px; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+header button { background: #e11d48; color: #fff; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+
+/* Ticker */
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #16181f;
+  border: 1px solid #2a2d36;
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: scroll-left 40s linear infinite;
+}
+.ticker-item {
+  padding: 0 28px;
+  font-size: 0.85em;
+  color: #9ca3af;
+  border-right: 1px solid #2a2d36;
+}
+.ticker-item.new_listing { color: #4ade80; font-weight: 600; }
+.ticker-item.sold_out { color: #facc15; font-weight: 600; }
+.ticker-item.whale { color: #f472b6; font-weight: 600; }
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Layout */
+.layout { display: grid; grid-template-columns: 1fr 340px; gap: 20px; align-items: start; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+
+/* Cards */
+.card { background: #1a1d24; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s; }
+.card.flash { border-color: #4ade80; background: #1d2a21; }
+.card.sold-out { opacity: 0.7; }
+.card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
+.card .addr { color: #999; font-size: 0.85em; }
+.card .stats { display: flex; flex-direction: column; font-size: 0.85em; color: #bbb; }
+
+.fill-bar { height: 8px; background: #2a2d36; border-radius: 6px; overflow: hidden; }
+.fill-bar-inner { height: 100%; background: linear-gradient(90deg, #e11d48, #f472b6); transition: width 0.5s ease-out; }
+.fill-stats { display: flex; justify-content: space-between; font-size: 0.75em; color: #9ca3af; }
+
+.badge { align-self: flex-start; padding: 2px 8px; border-radius: 6px; font-size: 0.75em; text-transform: uppercase; }
+.badge.active { background: #16a34a33; color: #4ade80; }
+.badge.pending { background: #ca8a0433; color: #facc15; }
+.badge.sold_out { background: #6b728033; color: #d1d5db; }
+.card button { background: #e11d48; color: #fff; border: none; padding: 8px; border-radius: 8px; cursor: pointer; }
+
+/* Activity feed panel */
+.feed-panel { background: #16181f; border: 1px solid #2a2d36; border-radius: 12px; padding: 16px; max-height: 80vh; overflow-y: auto; position: sticky; top: 16px; }
+.feed-panel h2 { margin: 0 0 12px; font-size: 1em; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }
+.feed-list { display: flex; flex-direction: column; gap: 10px; }
+.feed-row { border-bottom: 1px solid #22252d; padding-bottom: 8px; display: flex; flex-direction: column; gap: 2px; animation: fade-in 0.4s ease-out; }
+.feed-row.new_listing .feed-main { color: #4ade80; }
+.feed-row.sold_out .feed-main { color: #facc15; }
+.feed-row.whale .feed-main { color: #f472b6; }
+.feed-main { font-size: 0.85em; }
+.feed-sub { font-size: 0.72em; color: #777; }
+.feed-empty { color: #666; font-size: 0.85em; }
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal */
+.modal-backdrop { position: fixed; inset: 0; background: #000000aa; display: flex; align-items: center; justify-content: center; }
+.modal { background: #1a1d24; padding: 24px; border-radius: 12px; width: 320px; display: flex; flex-direction: column; gap: 12px; }
+.modal input { width: 100%; padding: 8px; margin-top: 4px; border-radius: 6px; border: 1px solid #333; background: #0f1115; color: #eee; }
+.modal .link { background: none; color: #999; text-decoration: underline; }
+.error { color: #f87171; }
+.status { color: #4ade80; font-size: 0.85em; }

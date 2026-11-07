@@ -1,0 +1,9 @@
+node_modules/
+build/
+dist/
+.env
+*.sqlite
+tronbox/
+scraper/output/
+scraper/*.log
+scraper/*.pid

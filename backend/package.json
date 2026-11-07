@@ -1,0 +1,19 @@
+{
+  "name": "real-estate-tokenize-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "import:scraped": "node src/import-scraped.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "tronweb": "^6.0.0",
+    "zod": "^3.23.8"
+  }
+}

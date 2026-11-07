@@ -1,0 +1,17 @@
+{
+  "name": "real-estate-tokenize-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile": "tronbox compile",
+    "migrate:shasta": "tronbox migrate --network shasta",
+    "migrate:nile": "tronbox migrate --network nile",
+    "test": "tronbox test"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6"
+  },
+  "devDependencies": {
+    "tronbox": "^3.4.3"
+  }
+}

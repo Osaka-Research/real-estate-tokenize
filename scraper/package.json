@@ -1,0 +1,15 @@
+{
+  "name": "real-estate-tokenize-scraper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "zillow": "node zillow.js",
+    "cycle": "bash run-cycle.sh",
+    "loop": "bash run-loop.sh",
+    "stop": "bash stop.sh"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.5.3"
+  }
+}

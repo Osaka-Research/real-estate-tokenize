@@ -1,0 +1,10 @@
+# One Zillow location slug per line (matches https://www.zillow.com/<slug>/).
+# Lines starting with # or blank are skipped.
+austin-tx
+denver-co
+miami-fl
+nashville-tn
+phoenix-az
+raleigh-nc
+tampa-fl
+charlotte-nc
